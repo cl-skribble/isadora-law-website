@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+
+  /* Isadora & Associates brand tokens */
+  --color-ink: #000000;
+  --color-ink-soft: #0a0a0a;
+  --color-paper: #faf9f6;
+  --color-gold-deep: #9b6606;
+  --color-gold: #e2bd48;
+  --color-gold-light: #fee195;
+  --color-gold-soft: #f4e8c8;
+  --color-muted: #6b6558;
+  --color-border: #e7e2d6;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-ink: var(--color-ink);
+  --color-ink-soft: var(--color-ink-soft);
+  --color-paper: var(--color-paper);
+  --color-gold-deep: var(--color-gold-deep);
+  --color-gold: var(--color-gold);
+  --color-gold-light: var(--color-gold-light);
+  --color-gold-soft: var(--color-gold-soft);
+  --color-muted: var(--color-muted);
+  --color-border: var(--color-border);
+
+  --font-display: var(--font-poppins);
+  --font-serif: var(--font-playfair);
+
+  --animate-fade-up: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-display), ui-sans-serif, sans-serif;
+}
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-ink);
+}
+
+/* Diagonal panel utility used across sections */
+.clip-diagonal-tr {
+  clip-path: polygon(28% 0, 100% 0, 100% 100%, 0 100%);
+}
+.clip-diagonal-bl {
+  clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 28%);
+}
+.clip-hex {
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.text-balance {
+  text-wrap: balance;
+}

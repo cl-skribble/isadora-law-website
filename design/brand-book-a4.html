@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Isadora & Associates — Brand Book</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary:    #E2BD48;
+    --secondary:  #000000;
+    --tertiary:   #9B6606;
+    --bg:         #FFFFFF;
+    --surface:    #FAF9F6;
+    --border:     #E7E2D6;
+    --text:       #171717;
+    --muted:      #6B6558;
+    --display-font: 'Poppins', sans-serif;
+    --serif-font: 'Playfair Display', serif;
+    --mono-font:  'Poppins', sans-serif;
+  }
+
+  @page { size: A4; margin: 0; }
+  html, body { margin: 0; padding: 0; background: var(--bg); }
+  * { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  .page {
+    width: 210mm; height: 297mm;
+    background: var(--bg); color: var(--text);
+    font-family: var(--display-font);
+    padding: 16mm 15mm 12mm;
+    display: flex; flex-direction: column; gap: 6.5mm;
+    position: relative; overflow: hidden;
+  }
+
+  .head { display: flex; align-items: center; justify-content: space-between; gap: 12mm; border-bottom: 2px solid var(--secondary); padding-bottom: 5mm; }
+  .brand { display: flex; align-items: center; gap: 10px; }
+  .brand img { height: 15mm; background:#fff; }
+  .brand h1 { margin: 0; font-size: 15px; font-weight: 800; letter-spacing: -0.01em; font-family: var(--serif-font); }
+  .brand .sub { margin: 2px 0 0; font-size: 8.5px; color: var(--muted); letter-spacing: 1.5px; text-transform: uppercase; }
+  .brand-meta { text-align: right; font-size: 8.5px; color: var(--muted); letter-spacing: 1.2px; text-transform: uppercase; line-height: 1.6; }
+  .brand-meta .tag { color: var(--tertiary); font-weight: 700; }
+
+  .section-label { font-size: 9px; font-weight: 700; letter-spacing: 2.2px; color: var(--tertiary); text-transform: uppercase; margin-bottom: 5px; }
+
+  .colors { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5mm; }
+  .swatch { border: 1px solid var(--border); border-radius: 3px; overflow: hidden; }
+  .swatch .fill { height: 20mm; }
+  .swatch .meta { padding: 5px 8px 7px; background: var(--surface); }
+  .swatch .tier { font-size: 9.5px; font-weight: 700; display: block; }
+  .swatch .hex { font-size: 8.5px; color: var(--muted); display: block; margin-top: 1px; }
+  .swatch .use { font-size: 8px; color: var(--muted); line-height: 1.3; margin-top: 3px; display: block; }
+
+  .twocol { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 6mm; }
+  .card { border: 1px solid var(--border); border-radius: 3px; padding: 5mm; background: var(--surface); }
+
+  .type-display { font-family: var(--serif-font); font-size: 22px; font-weight: 800; letter-spacing: -0.01em; color: var(--text); line-height: 1.1; margin: 0; }
+  .type-heading1 { font-size: 15px; font-weight: 400; margin: 8px 0 0; }
+  .type-heading2 { font-size: 15px; font-weight: 800; color: var(--tertiary); margin: 0 0 6px; }
+  .type-body { font-size: 8.5px; color: var(--muted); line-height: 1.5; margin: 2mm 0 0; }
+  .type-mono { font-size: 8px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin-top: 2mm; display: block; }
+
+  .principles ul { margin: 0; padding: 0 0 0 3.5mm; font-size: 8.3px; color: var(--muted); line-height: 1.65; }
+  .principles li { margin-bottom: 2px; }
+  .principles li b { color: var(--text); }
+  .principles li::marker { color: var(--primary); font-weight:700; }
+
+  .products { display: grid; grid-template-columns: repeat(5, 1fr); gap: 3mm; }
+  .product { border: 1px solid var(--border); border-radius: 3px; padding: 3.5mm 2mm; background: var(--surface); display: flex; flex-direction: column; align-items: center; gap: 4px; text-align:center; }
+  .product .dot { width: 12mm; height: 12mm; border-radius: 50%; background-size: cover; background-position: center top; border: 2px solid var(--primary); }
+  .product .name { font-size: 7.6px; font-weight: 700; line-height:1.2; }
+  .product .role { font-size: 6.8px; color: var(--muted); line-height:1.2; }
+
+  .wordmarks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5mm; }
+  .wm { border: 1px solid var(--border); border-radius: 3px; padding: 4mm; background: var(--surface); display: flex; flex-direction: column; gap: 5px; min-height: 22mm; justify-content: center; align-items:center; text-align:center; }
+  .wm.dark { background: var(--secondary); }
+  .wm .lockup { display: flex; align-items: center; gap: 8px; }
+  .wm img { max-height: 9mm; }
+  .wm .name { font-weight: 800; font-size: 13px; letter-spacing: 2px; color: var(--text); text-transform: uppercase; font-family: var(--serif-font); }
+  .wm.dark .name { color: var(--primary); }
+  .wm .name .lo { font-weight: 400; color: var(--muted); font-size: 8px; letter-spacing: 2px; display:block; margin-top:2px; }
+  .wm.dark .name .lo { color: rgba(255,255,255,0.55); }
+  .wm .mono { font-size: 7px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin-top: auto; display: block; }
+  .wm.dark .mono { color: rgba(255,255,255,0.4); }
+  .mono-chip { width: 11mm; height: 11mm; background: linear-gradient(135deg,#FEE195,#9B6606); display:flex; align-items:center; justify-content:center; }
+  .mono-chip span { font-family: var(--serif-font); color:#fff; font-weight:700; font-size:16px; }
+
+  .foot { display: flex; justify-content: space-between; align-items: flex-end; margin-top: auto; padding-top: 3mm; border-top: 1px solid var(--border); font-size: 7.5px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEAD -->
+  <div class="head">
+    <div class="brand">
+      <img src="../assets/branding/isadora-logo.jpg" alt="Isadora & Associates" />
+      <div>
+        <h1>Isadora &amp; Associates</h1>
+        <p class="sub">Advocates &amp; Solicitors · Brand Book</p>
+      </div>
+    </div>
+    <div class="brand-meta">
+      v1 · 2026<br/>
+      <span class="tag">"Your Legal Compass"</span>
+    </div>
+  </div>
+
+  <!-- COLOR HIERARCHY -->
+  <div>
+    <div class="section-label">Color Hierarchy</div>
+    <div class="colors">
+      <div class="swatch"><div class="fill" style="background:#000000"></div><div class="meta"><span class="tier">Ink</span><span class="hex">#000000</span><span class="use">Diagonal panels, headings, footer</span></div></div>
+      <div class="swatch"><div class="fill" style="background:linear-gradient(135deg,#9B6606,#E2BD48 55%,#FEE195)"></div><div class="meta"><span class="tier">Gold</span><span class="hex">#E2BD48</span><span class="use">Dividers, hexagons, monogram</span></div></div>
+      <div class="swatch"><div class="fill" style="background:#FFFFFF;border-bottom:1px solid var(--border)"></div><div class="meta"><span class="tier">White</span><span class="hex">#FFFFFF</span><span class="use">Primary background surface</span></div></div>
+    </div>
+  </div>
+
+  <!-- TYPOGRAPHY + PRINCIPLES -->
+  <div class="twocol">
+    <div>
+      <div class="section-label">Typography</div>
+      <div class="card">
+        <p class="type-display">Isadora &amp; Associates</p>
+        <p class="type-heading1">OUR</p>
+        <p class="type-heading2">SERVICES</p>
+        <p class="type-body">Playfair Display for the wordmark and ceremonial numerals; Poppins (Light through ExtraBold) for every heading and body use — confirmed via the source document's embedded fonts.</p>
+        <span class="type-mono">Poppins · Labels · UI</span>
+      </div>
+    </div>
+    <div>
+      <div class="section-label">Core Values</div>
+      <div class="card principles">
+        <ul>
+          <li><b>Relentless Efficiency</b> — high-velocity workflow, uncompromised quality</li>
+          <li><b>Absolute Integrity</b> — the highest ethical standard, always</li>
+          <li><b>Pragmatic Innovation</b> — wise counsel over unnecessary complexity</li>
+          <li><b>Economic Foresight</b> — every case weighed legally and economically</li>
+          <li><b>Strategic Alignment</b> — legal strategy synced to business DNA</li>
+          <li><b>Collaborative Partnership</b> — a vital part of the client's team</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- TEAM -->
+  <div>
+    <div class="section-label">Our Team</div>
+    <div class="products">
+      <div class="product"><div class="dot" style="background-image:url('../assets/team/isadora-ismail-headshot.png')"></div><div class="name">Nur' Isadora Ismail</div><div class="role">Managing Partner</div></div>
+      <div class="product"><div class="dot" style="background-image:url('../assets/team/siti-sharina-headshot.png')"></div><div class="name">Siti Sharina Ismail</div><div class="role">Head of Conveyancing</div></div>
+      <div class="product"><div class="dot" style="background-image:url('../assets/team/nur-aqilah-headshot.png')"></div><div class="name">Nur Aqilah Izmah</div><div class="role">Head of Litigation</div></div>
+      <div class="product"><div class="dot" style="background-image:url('../assets/team/norridza-halim-headshot.png')"></div><div class="name">Norridza A. Halim</div><div class="role">Head of Corporate</div></div>
+      <div class="product"><div class="dot" style="background-image:url('../assets/team/nik-norazreen-headshot.png')"></div><div class="name">Nik Norazreen</div><div class="role">Legal Assistant</div></div>
+    </div>
+  </div>
+
+  <!-- IMAGERY -->
+  <div>
+    <div class="section-label">Photography Style</div>
+    <div class="products" style="grid-template-columns:repeat(5,1fr);">
+      <div class="product" style="padding:0;overflow:hidden;"><div style="height:22mm;width:100%;background:url('thumbs/corporate.jpg') center/cover;"></div><div class="role" style="padding:2mm 0 3mm;">Corporate</div></div>
+      <div class="product" style="padding:0;overflow:hidden;"><div style="height:22mm;width:100%;background:url('thumbs/real-estate.jpg') center/cover;"></div><div class="role" style="padding:2mm 0 3mm;">Real Estate</div></div>
+      <div class="product" style="padding:0;overflow:hidden;"><div style="height:22mm;width:100%;background:url('thumbs/litigation.jpg') center/cover;"></div><div class="role" style="padding:2mm 0 3mm;">Litigation</div></div>
+      <div class="product" style="padding:0;overflow:hidden;"><div style="height:22mm;width:100%;background:url('thumbs/entertainment.jpg') center/cover;"></div><div class="role" style="padding:2mm 0 3mm;">Entertainment</div></div>
+      <div class="product" style="padding:0;overflow:hidden;"><div style="height:22mm;width:100%;background:url('thumbs/syariah.jpg') center/cover;"></div><div class="role" style="padding:2mm 0 3mm;">Syariah</div></div>
+    </div>
+    <p class="type-body" style="margin-top:3mm;">Desaturated / high-contrast editorial photography — courtroom instruments, skyline architecture, and industry-specific detail shots, always paired with a black or white diagonal panel and a single gold rule.</p>
+  </div>
+
+  <!-- WORDMARKS -->
+  <div>
+    <div class="section-label">Wordmarks · Lockups</div>
+    <div class="wordmarks">
+      <div class="wm">
+        <img src="../assets/branding/isadora-logo.jpg" alt="lockup" />
+        <span class="mono">Mark + wordmark · light bg</span>
+      </div>
+      <div class="wm dark">
+        <div class="mono-chip"><span>I</span></div>
+        <div class="name">ISADORA<span class="lo">&amp; ASSOCIATES</span></div>
+        <span class="mono">Reversed · dark panels</span>
+      </div>
+      <div class="wm">
+        <div class="mono-chip"><span>I</span></div>
+        <span class="mono">Monogram · favicon / avatar</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="foot">
+    <span>Isadora &amp; Associates Design System</span>
+    <span>design/brand-book-a4.html</span>
+  </div>
+</div>
+</body>
+</html>

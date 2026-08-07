@@ -1,0 +1,13 @@
+# Source material and working files (not deliverables)
+Isadora Company Profile*.pdf
+extracted_images/
+page_renders/
+
+# Next.js app
+site/node_modules/
+site/.next/
+site/out/
+site/.vercel/
+site/*.tsbuildinfo
+site/next-env.d.ts
+.DS_Store
