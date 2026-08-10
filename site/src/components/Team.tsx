@@ -22,7 +22,7 @@ export function Team() {
                     alt={member.name}
                     fill
                     sizes="200px"
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="object-cover object-top transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
               </div>
