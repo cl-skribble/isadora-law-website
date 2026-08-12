@@ -68,7 +68,7 @@ export function Nav() {
         <button
           type="button"
           aria-label="Toggle menu"
-          className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 lg:hidden"
+          className="flex h-11 w-11 flex-col items-center justify-center gap-1.5 lg:hidden"
           onClick={() => setOpen((v) => !v)}
         >
           <motion.span

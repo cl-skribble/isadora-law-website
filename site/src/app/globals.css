@@ -58,6 +58,14 @@ body {
   color: var(--color-ink);
 }
 
+/* Keyboard focus ring. gold-deep (not gold) clears 3:1 non-text contrast
+   against both white and black sections; plain gold fails on white. */
+:focus-visible {
+  outline: 2px solid var(--color-gold-deep);
+  outline-offset: 2px;
+  transition: outline-offset 100ms ease-out;
+}
+
 /* Diagonal panel utility used across sections */
 .clip-diagonal-tr {
   clip-path: polygon(28% 0, 100% 0, 100% 100%, 0 100%);

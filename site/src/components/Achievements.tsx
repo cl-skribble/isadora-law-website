@@ -25,7 +25,7 @@ export function Achievements() {
                 <p className="text-sm font-semibold text-ink">{item.org}</p>
                 <ul className="mt-2 space-y-1">
                   {item.roles.map((role) => (
-                    <li key={role} className="flex gap-2 text-xs text-ink/55">
+                    <li key={role} className="flex gap-2 text-xs text-ink/70">
                       <span className="text-gold-deep">—</span>
                       {role}
                     </li>

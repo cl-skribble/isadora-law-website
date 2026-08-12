@@ -5,6 +5,21 @@ import { motion } from "framer-motion";
 import { clients, type ClientLogo } from "@/lib/data";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Reveal } from "@/components/Reveal";
+import { useSafeReducedMotion } from "@/lib/useSafeReducedMotion";
+
+function LogoTile({ logo, hidden }: { logo: ClientLogo; hidden?: boolean }) {
+  return (
+    <div className="flex h-10 shrink-0 items-center sm:h-12" aria-hidden={hidden || undefined}>
+      <Image
+        src={`/images/logos/clients/${logo.slug}.png`}
+        alt={hidden ? "" : logo.name}
+        width={logo.width}
+        height={logo.height}
+        className="h-full w-auto object-contain opacity-60 grayscale transition-[opacity,filter] duration-300 hover:opacity-100 hover:grayscale-0"
+      />
+    </div>
+  );
+}
 
 function MarqueeRow({
   logos,
@@ -15,6 +30,21 @@ function MarqueeRow({
   direction: "left" | "right";
   duration: number;
 }) {
+  const reduceMotion = useSafeReducedMotion();
+
+  if (reduceMotion) {
+    // Static: no infinite scroll, and no duplicated loop content to announce/read twice.
+    return (
+      <div className="relative overflow-hidden py-6">
+        <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6 sm:gap-x-16">
+          {logos.map((logo) => (
+            <LogoTile key={logo.slug} logo={logo} />
+          ))}
+        </div>
+      </div>
+    );
+  }
+
   const loop = [...logos, ...logos];
 
   return (
@@ -28,15 +58,7 @@ function MarqueeRow({
         transition={{ duration, repeat: Infinity, ease: "linear" }}
       >
         {loop.map((logo, i) => (
-          <div key={`${logo.slug}-${i}`} className="flex h-10 shrink-0 items-center sm:h-12">
-            <Image
-              src={`/images/logos/clients/${logo.slug}.png`}
-              alt={logo.name}
-              width={logo.width}
-              height={logo.height}
-              className="h-full w-auto object-contain opacity-60 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
-            />
-          </div>
+          <LogoTile key={`${logo.slug}-${i}`} logo={logo} hidden={i >= logos.length} />
         ))}
       </motion.div>
     </div>
@@ -53,7 +75,7 @@ export function Clients() {
       <div className="mx-auto max-w-3xl px-6 text-center sm:px-10">
         <Reveal>
           <SectionHeading eyebrow="Our" emphasis="Valued Clients" center />
-          <p className="mx-auto -mt-3 mb-4 max-w-lg text-sm text-ink/55">
+          <p className="mx-auto -mt-3 mb-4 max-w-lg text-sm text-ink/70">
             Trusted by industry leaders across corporate, eSports, publishing, and technology.
           </p>
         </Reveal>

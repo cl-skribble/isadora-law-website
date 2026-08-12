@@ -11,25 +11,33 @@ export function Team() {
           <SectionHeading eyebrow="Our" emphasis="Team" center />
         </Reveal>
 
-        <div className="grid grid-cols-2 gap-x-6 gap-y-14 sm:grid-cols-3 lg:grid-cols-5 lg:gap-x-8">
+        <div className="grid grid-cols-2 gap-x-5 gap-y-12 sm:grid-cols-3 lg:grid-cols-5 lg:gap-x-6">
           {team.map((member, i) => (
             <Reveal key={member.slug} delay={i * 0.08} className="group">
-              <div className="relative mx-auto h-40 w-36 sm:h-44 sm:w-40">
-                <div className="absolute inset-0 translate-x-1.5 translate-y-1.5 bg-gold clip-hex transition-transform duration-300 group-hover:translate-x-2.5 group-hover:translate-y-2.5" />
-                <div className="relative h-full w-full overflow-hidden clip-hex bg-ink">
+              <div className="relative overflow-hidden border border-border bg-paper">
+                <span className="absolute left-0 top-0 z-10 h-8 w-8 bg-ink" />
+                <span className="absolute left-2 top-1 z-10 font-display text-sm font-bold text-gold">
+                  0{i + 1}
+                </span>
+                <div className="relative aspect-[4/5] w-full">
                   <Image
                     src={member.image}
                     alt={member.name}
                     fill
-                    sizes="200px"
-                    className="object-cover object-top transition-transform duration-500 group-hover:scale-110"
+                    sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 20vw"
+                    className="object-cover object-top grayscale transition-all duration-500 group-hover:scale-105 group-hover:grayscale-0"
                   />
                 </div>
+                <div className="absolute inset-x-0 bottom-0 h-1 origin-left scale-x-0 bg-gold transition-transform duration-500 group-hover:scale-x-100" />
               </div>
-              <div className="mt-6 text-center">
-                <h3 className="font-display text-sm font-bold text-ink sm:text-base">{member.name}</h3>
-                <p className="mt-1 text-xs font-medium italic text-gold-deep sm:text-sm">{member.title}</p>
-                <p className="mx-auto mt-2 max-w-[200px] text-[11px] leading-relaxed text-ink/55 sm:text-xs">
+              <div className="mt-5">
+                <h3 className="font-display text-base font-bold leading-snug text-ink sm:text-lg">
+                  {member.name}
+                </h3>
+                <p className="mt-1 text-xs font-medium italic text-gold-deep sm:text-sm">
+                  {member.title}
+                </p>
+                <p className="mt-2.5 text-[11px] leading-relaxed text-ink/70 sm:text-xs">
                   {member.bio}
                 </p>
               </div>

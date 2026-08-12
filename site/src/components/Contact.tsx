@@ -110,13 +110,13 @@ export function Contact() {
 
         <nav className="mt-20 flex flex-wrap gap-x-8 gap-y-3 border-t border-white/10 pt-10">
           {nav.map((item) => (
-            <a key={item.href} href={item.href} className="text-xs uppercase tracking-widest text-white/40 hover:text-gold">
+            <a key={item.href} href={item.href} className="text-xs uppercase tracking-widest text-white/60 hover:text-gold">
               {item.label}
             </a>
           ))}
         </nav>
 
-        <div className="mt-10 flex flex-col gap-2 text-[11px] text-white/30 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-10 flex flex-col gap-2 text-[11px] text-white/50 sm:flex-row sm:items-center sm:justify-between">
           <span>© {new Date().getFullYear()} {site.legalName}. All rights reserved.</span>
           <span>{site.tagline}</span>
         </div>

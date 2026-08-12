@@ -27,7 +27,7 @@ export function Services() {
       <div className="mx-auto max-w-5xl px-6 sm:px-10">
         <Reveal>
           <SectionHeading eyebrow="Our" emphasis="Services" center />
-          <p className="mx-auto -mt-3 mb-4 max-w-lg text-center text-sm text-ink/55">
+          <p className="mx-auto -mt-3 mb-4 max-w-lg text-center text-sm text-ink/70">
             Seven practice areas. Tap any to see key services and detail.
           </p>
         </Reveal>
@@ -71,7 +71,7 @@ function ServiceRow({
       >
         <span
           className={clsx(
-            "font-serif text-lg font-bold shrink-0 w-9 text-center sm:text-xl",
+            "font-display text-lg font-bold shrink-0 w-9 text-center sm:text-xl",
             isOpen ? "text-gold" : "text-ink/25"
           )}
         >
@@ -81,7 +81,7 @@ function ServiceRow({
           <span className="block font-display text-base font-bold text-ink sm:text-lg">
             {service.name}
           </span>
-          <span className="mt-0.5 block text-[13px] text-ink/50 sm:text-sm">{service.summary}</span>
+          <span className="mt-0.5 block text-[13px] text-ink/70 sm:text-sm">{service.summary}</span>
         </span>
         <span className={clsx("hidden sm:block", isOpen ? "text-gold" : "text-ink/30")}>
           <ChevronIcon open={isOpen} />
@@ -89,7 +89,7 @@ function ServiceRow({
       </button>
 
       <div
-        className="grid transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
+        className="grid transition-[grid-template-rows] duration-[350ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
         style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
       >
         <div className="overflow-hidden">

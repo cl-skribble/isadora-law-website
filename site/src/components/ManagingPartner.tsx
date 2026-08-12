@@ -23,7 +23,7 @@ export function ManagingPartner() {
               </div>
             </div>
             <div className="mx-auto mt-8 max-w-sm text-center lg:text-left">
-              <h3 className="font-serif text-2xl font-bold text-white">{managingPartner.name}</h3>
+              <h3 className="font-display text-2xl font-bold text-white">{managingPartner.name}</h3>
               <p className="mt-1 text-sm font-semibold uppercase tracking-widest text-gold">
                 {managingPartner.title}
               </p>
