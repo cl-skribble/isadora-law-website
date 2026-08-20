@@ -1,4 +1,6 @@
-import { whyUs } from "@/lib/data";
+"use client";
+
+import { useContent } from "@/lib/LanguageContext";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Reveal } from "@/components/Reveal";
 
@@ -19,12 +21,14 @@ const icons = [
 ];
 
 export function WhyUs() {
+  const { whyUs, whyUsSection } = useContent();
+
   return (
     <section id="why-us" className="relative overflow-hidden bg-ink py-28 sm:py-36">
       <div className="pointer-events-none absolute -right-40 bottom-0 h-96 w-96 rounded-full bg-gold/10 blur-3xl" />
       <div className="mx-auto max-w-5xl px-6 sm:px-10">
         <Reveal>
-          <SectionHeading eyebrow="Why" emphasis="Isadora & Associates?" dark />
+          <SectionHeading eyebrow={whyUsSection.eyebrow} emphasis={whyUsSection.emphasis} dark />
         </Reveal>
 
         <div className="grid gap-12 sm:grid-cols-2">

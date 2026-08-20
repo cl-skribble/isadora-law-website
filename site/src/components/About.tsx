@@ -1,8 +1,12 @@
-import { about } from "@/lib/data";
+"use client";
+
+import { useContent } from "@/lib/LanguageContext";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Reveal } from "@/components/Reveal";
 
 export function About() {
+  const { about } = useContent();
+
   return (
     <section id="about" className="relative overflow-hidden bg-white py-28 sm:py-36">
       {/* corner accents echoing the profile's diagonal motif */}
@@ -11,7 +15,7 @@ export function About() {
 
       <div className="relative mx-auto max-w-4xl px-6 sm:px-10">
         <Reveal>
-          <SectionHeading eyebrow="A Commitment To" emphasis="Excellence" />
+          <SectionHeading eyebrow={about.eyebrow} emphasis={about.heading} />
         </Reveal>
 
         <div className="space-y-6">

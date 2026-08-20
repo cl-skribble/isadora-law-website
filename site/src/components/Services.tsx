@@ -3,7 +3,8 @@
 import { useState } from "react";
 import Image from "next/image";
 import { clsx } from "clsx";
-import { services, type Service } from "@/lib/data";
+import { useContent } from "@/lib/LanguageContext";
+import type { Service } from "@/lib/content/types";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Reveal } from "@/components/Reveal";
 
@@ -20,15 +21,16 @@ const ChevronIcon = ({ open }: { open: boolean }) => (
 );
 
 export function Services() {
+  const { services, servicesSection } = useContent();
   const [openSlug, setOpenSlug] = useState<string | null>(services[0].slug);
 
   return (
     <section id="services" className="relative overflow-hidden bg-white py-28 sm:py-36">
       <div className="mx-auto max-w-5xl px-6 sm:px-10">
         <Reveal>
-          <SectionHeading eyebrow="Our" emphasis="Services" center />
+          <SectionHeading eyebrow={servicesSection.eyebrow} emphasis={servicesSection.emphasis} center />
           <p className="mx-auto -mt-3 mb-4 max-w-lg text-center text-sm text-ink/70">
-            Seven practice areas. Tap any to see key services and detail.
+            {servicesSection.intro}
           </p>
         </Reveal>
 
@@ -40,6 +42,7 @@ export function Services() {
               index={i}
               isOpen={openSlug === service.slug}
               onToggle={() => setOpenSlug((cur) => (cur === service.slug ? null : service.slug))}
+              keyServicesLabel={servicesSection.keyServicesLabel}
             />
           ))}
         </div>
@@ -53,11 +56,13 @@ function ServiceRow({
   index,
   isOpen,
   onToggle,
+  keyServicesLabel,
 }: {
   service: Service;
   index: number;
   isOpen: boolean;
   onToggle: () => void;
+  keyServicesLabel: string;
 }) {
   const isSyariah = service.slug === "syariah-law";
 
@@ -122,7 +127,7 @@ function ServiceRow({
               <div className="mt-7 h-px w-full bg-white/10" />
 
               <p className="mt-6 mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-gold">
-                Key Services
+                {keyServicesLabel}
               </p>
               <div className="grid gap-x-6 gap-y-2.5 sm:grid-cols-2">
                 {service.keyServices.map((k) => (

@@ -1,4 +1,6 @@
-import { achievements, managingPartner } from "@/lib/data";
+"use client";
+
+import { useContent } from "@/lib/LanguageContext";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Reveal, RevealGroup, RevealItem } from "@/components/Reveal";
 
@@ -11,11 +13,16 @@ const TrophyIcon = () => (
 );
 
 export function Achievements() {
+  const { achievements, achievementsSection, managingPartner } = useContent();
+
   return (
     <section className="relative overflow-hidden bg-white py-28 sm:py-36">
       <div className="mx-auto max-w-6xl px-6 sm:px-10">
         <Reveal>
-          <SectionHeading eyebrow="Industry" emphasis="Engagement" />
+          <SectionHeading
+            eyebrow={achievementsSection.industryEyebrow}
+            emphasis={achievementsSection.industryEmphasis}
+          />
         </Reveal>
 
         <RevealGroup className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -38,7 +45,11 @@ export function Achievements() {
 
         <div className="mt-24 border-t border-border pt-24">
           <Reveal>
-            <SectionHeading eyebrow="Recent" emphasis="Achievements" center />
+            <SectionHeading
+              eyebrow={achievementsSection.recentEyebrow}
+              emphasis={achievementsSection.recentEmphasis}
+              center
+            />
           </Reveal>
 
           <RevealGroup className="grid gap-8 sm:grid-cols-3">

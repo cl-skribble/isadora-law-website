@@ -1,8 +1,12 @@
+"use client";
+
 import Image from "next/image";
-import { managingPartner } from "@/lib/data";
+import { useContent } from "@/lib/LanguageContext";
 import { Reveal, RevealGroup, RevealItem } from "@/components/Reveal";
 
 export function ManagingPartner() {
+  const { managingPartner } = useContent();
+
   return (
     <section className="relative overflow-hidden bg-ink py-28 sm:py-36">
       <div className="pointer-events-none absolute -left-32 top-0 h-96 w-96 rounded-full bg-gold/10 blur-3xl" />
@@ -39,7 +43,7 @@ export function ManagingPartner() {
 
           <Reveal delay={0.1}>
             <h4 className="mt-12 mb-6 font-display text-lg font-bold text-white">
-              Strategic Pillars of Expertise
+              {managingPartner.pillarsHeading}
             </h4>
           </Reveal>
 
@@ -55,7 +59,9 @@ export function ManagingPartner() {
           </RevealGroup>
 
           <Reveal delay={0.1}>
-            <h4 className="mt-14 mb-6 font-display text-lg font-bold text-white">Industry Engagement</h4>
+            <h4 className="mt-14 mb-6 font-display text-lg font-bold text-white">
+              {managingPartner.industryEngagementHeading}
+            </h4>
           </Reveal>
           <RevealGroup className="grid gap-4 sm:grid-cols-2">
             {managingPartner.industryEngagement.map((item) => (

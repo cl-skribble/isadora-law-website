@@ -1,14 +1,18 @@
+"use client";
+
 import Image from "next/image";
-import { team } from "@/lib/data";
+import { useContent } from "@/lib/LanguageContext";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Reveal } from "@/components/Reveal";
 
 export function Team() {
+  const { team, teamSection } = useContent();
+
   return (
     <section id="team" className="relative overflow-hidden bg-white py-28 sm:py-36">
       <div className="mx-auto max-w-7xl px-6 sm:px-10">
         <Reveal>
-          <SectionHeading eyebrow="Our" emphasis="Team" center />
+          <SectionHeading eyebrow={teamSection.eyebrow} emphasis={teamSection.emphasis} center />
         </Reveal>
 
         <div className="grid grid-cols-2 gap-x-5 gap-y-12 sm:grid-cols-3 lg:grid-cols-5 lg:gap-x-6">

@@ -1,9 +1,13 @@
+"use client";
+
 import Image from "next/image";
-import { welcome } from "@/lib/data";
+import { useContent } from "@/lib/LanguageContext";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Reveal } from "@/components/Reveal";
 
 export function Welcome() {
+  const { welcome } = useContent();
+
   return (
     <section className="relative overflow-hidden bg-paper py-28 sm:py-36">
       <div className="mx-auto max-w-4xl px-6 sm:px-10">

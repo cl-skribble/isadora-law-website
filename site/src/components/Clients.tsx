@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { clients, type ClientLogo } from "@/lib/data";
+import { useContent } from "@/lib/LanguageContext";
+import type { ClientLogo } from "@/lib/content/types";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Reveal } from "@/components/Reveal";
 import { useSafeReducedMotion } from "@/lib/useSafeReducedMotion";
@@ -66,6 +67,7 @@ function MarqueeRow({
 }
 
 export function Clients() {
+  const { clients, clientsSection } = useContent();
   const mid = Math.ceil(clients.length / 2);
   const rowA = clients.slice(0, mid);
   const rowB = clients.slice(mid);
@@ -74,9 +76,9 @@ export function Clients() {
     <section id="clients" className="relative overflow-hidden bg-paper py-28 sm:py-36">
       <div className="mx-auto max-w-3xl px-6 text-center sm:px-10">
         <Reveal>
-          <SectionHeading eyebrow="Our" emphasis="Valued Clients" center />
+          <SectionHeading eyebrow={clientsSection.eyebrow} emphasis={clientsSection.emphasis} center />
           <p className="mx-auto -mt-3 mb-4 max-w-lg text-sm text-ink/70">
-            Trusted by industry leaders across corporate, eSports, publishing, and technology.
+            {clientsSection.subtitle}
           </p>
         </Reveal>
       </div>

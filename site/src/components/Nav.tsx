@@ -3,9 +3,37 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { clsx } from "clsx";
-import { nav, site } from "@/lib/data";
+import { useLanguage } from "@/lib/LanguageContext";
+
+function LanguageToggle({ className }: { className?: string }) {
+  const { language, setLanguage } = useLanguage();
+
+  return (
+    <div className={clsx("flex items-center gap-1 text-xs font-semibold uppercase tracking-widest", className)}>
+      <button
+        type="button"
+        onClick={() => setLanguage("en")}
+        aria-pressed={language === "en"}
+        className={clsx("px-1.5 py-1 transition-colors", language === "en" ? "text-gold" : "text-white/40 hover:text-white/70")}
+      >
+        EN
+      </button>
+      <span className="text-white/20">/</span>
+      <button
+        type="button"
+        onClick={() => setLanguage("ms")}
+        aria-pressed={language === "ms"}
+        className={clsx("px-1.5 py-1 transition-colors", language === "ms" ? "text-gold" : "text-white/40 hover:text-white/70")}
+      >
+        BM
+      </button>
+    </div>
+  );
+}
 
 export function Nav() {
+  const { content } = useLanguage();
+  const { nav, site, logo } = content;
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -40,17 +68,17 @@ export function Nav() {
               ISADORA <span className="font-normal text-white/70">&amp; ASSOCIATES</span>
             </span>
             <span className="mt-1 text-[9px] tracking-[0.25em] text-gold uppercase">
-              Advocates &amp; Solicitors
+              {logo.subtitle}
             </span>
           </span>
         </a>
 
-        <ul className="hidden items-center gap-9 lg:flex">
+        <ul className="hidden items-center gap-5 xl:gap-8 lg:flex">
           {nav.map((item) => (
             <li key={item.href}>
               <a
                 href={item.href}
-                className="text-sm font-medium tracking-wide text-white/80 transition-colors hover:text-gold"
+                className="whitespace-nowrap text-sm font-medium tracking-wide text-white/80 transition-colors hover:text-gold"
               >
                 {item.label}
               </a>
@@ -58,12 +86,15 @@ export function Nav() {
           ))}
         </ul>
 
-        <a
-          href="#contact"
-          className="hidden items-center gap-2 border border-gold px-5 py-2.5 text-xs font-semibold uppercase tracking-widest text-gold transition-colors hover:bg-gold hover:text-black lg:inline-flex"
-        >
-          {site.phone}
-        </a>
+        <div className="hidden shrink-0 items-center gap-4 lg:flex">
+          <LanguageToggle />
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 whitespace-nowrap border border-gold px-5 py-2.5 text-xs font-semibold uppercase tracking-widest text-gold transition-colors hover:bg-gold hover:text-black"
+          >
+            {site.phone}
+          </a>
+        </div>
 
         <button
           type="button"
@@ -104,7 +135,7 @@ export function Nav() {
                   </a>
                 </li>
               ))}
-              <li className="pt-4">
+              <li className="flex items-center justify-between gap-4 pt-4">
                 <a
                   href="#contact"
                   onClick={() => setOpen(false)}
@@ -112,6 +143,7 @@ export function Nav() {
                 >
                   {site.phone}
                 </a>
+                <LanguageToggle />
               </li>
             </ul>
           </motion.div>

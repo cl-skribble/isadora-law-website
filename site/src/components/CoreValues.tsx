@@ -1,7 +1,7 @@
 "use client";
 
 import { clsx } from "clsx";
-import { coreValues } from "@/lib/data";
+import { useContent } from "@/lib/LanguageContext";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Reveal } from "@/components/Reveal";
 import { motion } from "framer-motion";
@@ -43,6 +43,7 @@ function HexCard({
 }
 
 export function CoreValues() {
+  const { coreValues, coreValuesSection } = useContent();
   const [v1, v2, v3, v4, v5, v6] = coreValues;
   const top = [v1, v2, v3];
   const bottom = [v4, v5, v6];
@@ -53,7 +54,7 @@ export function CoreValues() {
     <section className="relative overflow-hidden bg-paper py-28 sm:py-36">
       <div className="mx-auto max-w-6xl px-6 sm:px-10">
         <Reveal>
-          <SectionHeading eyebrow="Core" emphasis="Values" center />
+          <SectionHeading eyebrow={coreValuesSection.eyebrow} emphasis={coreValuesSection.emphasis} center />
         </Reveal>
 
         <div className="mx-auto grid max-w-4xl grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6">

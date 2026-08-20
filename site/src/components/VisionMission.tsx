@@ -1,4 +1,6 @@
-import { visionMission } from "@/lib/data";
+"use client";
+
+import { useContent } from "@/lib/LanguageContext";
 import { Reveal } from "@/components/Reveal";
 
 const TargetIcon = () => (
@@ -17,6 +19,8 @@ const EyeIcon = () => (
 );
 
 export function VisionMission() {
+  const { visionMission } = useContent();
+
   return (
     <section className="relative overflow-hidden bg-white py-28 sm:py-36">
       <div className="mx-auto max-w-4xl px-6 sm:px-10">
@@ -28,7 +32,7 @@ export function VisionMission() {
               </div>
               <div>
                 <span className="inline-block bg-ink px-6 py-2 font-display text-xl font-extrabold tracking-wide text-white">
-                  VISION
+                  {visionMission.visionLabel}
                 </span>
                 <div className="mt-4 h-1 w-16 bg-gold" />
                 <p className="mt-5 text-[15px] leading-[1.9] text-ink/70 sm:text-base">
@@ -45,7 +49,7 @@ export function VisionMission() {
               </div>
               <div>
                 <span className="inline-block bg-ink px-6 py-2 font-display text-xl font-extrabold tracking-wide text-white">
-                  MISSION
+                  {visionMission.missionLabel}
                 </span>
                 <div className="mt-4 h-1 w-16 bg-gold" />
                 <p className="mt-5 text-[15px] leading-[1.9] text-ink/70 sm:text-base">

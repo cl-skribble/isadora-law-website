@@ -1,6 +1,9 @@
+"use client";
+
 import Image from "next/image";
-import { nav, site } from "@/lib/data";
+import { useContent } from "@/lib/LanguageContext";
 import { Reveal } from "@/components/Reveal";
+import { EnquiryForm } from "@/components/EnquiryForm";
 
 const PhoneIcon = () => (
   <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth={1.6}>
@@ -21,6 +24,8 @@ const PinIcon = () => (
 );
 
 export function Contact() {
+  const { site, nav, logo, contact } = useContent();
+
   return (
     <footer id="contact" className="relative overflow-hidden bg-ink">
       <div className="absolute inset-y-0 right-0 hidden w-[45%] clip-diagonal-tr sm:block">
@@ -47,16 +52,16 @@ export function Contact() {
                   ISADORA <span className="font-normal text-white">&amp; ASSOCIATES</span>
                 </span>
                 <span className="block text-[9px] tracking-[0.3em] text-white/50 uppercase">
-                  Advocates &amp; Solicitors
+                  {logo.subtitle}
                 </span>
               </span>
             </div>
 
             <h2 className="font-display text-4xl font-normal leading-[1.05] text-white sm:text-5xl">
-              Your Legal
+              {contact.headingLine1}
             </h2>
             <h2 className="font-display text-4xl font-extrabold leading-[1.05] text-gold sm:text-5xl">
-              Compass.
+              {contact.headingLine2}
             </h2>
             <p className="mt-3 text-sm text-white/50">{site.legalName}</p>
           </Reveal>
@@ -103,10 +108,14 @@ export function Contact() {
               href={`tel:${site.phone.replace(/[^+\d]/g, "")}`}
               className="mt-10 inline-flex items-center gap-2 bg-gold px-8 py-4 text-xs font-semibold uppercase tracking-widest text-black transition-transform hover:-translate-y-0.5"
             >
-              Book a Consultation
+              {contact.ctaButton}
             </a>
           </Reveal>
         </div>
+
+        <Reveal delay={0.3} className="mt-16 max-w-2xl">
+          <EnquiryForm />
+        </Reveal>
 
         <nav className="mt-20 flex flex-wrap gap-x-8 gap-y-3 border-t border-white/10 pt-10">
           {nav.map((item) => (
@@ -117,7 +126,7 @@ export function Contact() {
         </nav>
 
         <div className="mt-10 flex flex-col gap-2 text-[11px] text-white/50 sm:flex-row sm:items-center sm:justify-between">
-          <span>© {new Date().getFullYear()} {site.legalName}. All rights reserved.</span>
+          <span>© {new Date().getFullYear()} {site.legalName}. {contact.rightsReserved}</span>
           <span>{site.tagline}</span>
         </div>
       </div>
