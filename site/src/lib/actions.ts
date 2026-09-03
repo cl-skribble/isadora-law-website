@@ -63,7 +63,7 @@ export async function submitEnquiry(
   try {
     const resend = new Resend(apiKey);
     const { error } = await resend.emails.send({
-      from: "Isadora & Associates Website <onboarding@resend.dev>",
+      from: "Isadora & Associates Website <enquiries@isadoralaw.com>",
       to: ENQUIRY_RECIPIENT,
       replyTo: email,
       subject: `New enquiry from ${name}`,
