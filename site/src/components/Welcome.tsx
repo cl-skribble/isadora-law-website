@@ -26,13 +26,13 @@ export function Welcome() {
       <Reveal y={40} delay={0.15} className="mx-auto mt-16 max-w-6xl px-6 sm:px-10">
         <div className="relative">
           <div className="absolute -bottom-4 -right-4 -z-10 h-full w-full bg-black sm:-bottom-6 sm:-right-6" />
-          <div className="relative aspect-[16/6] w-full overflow-hidden bg-white sm:aspect-[21/7]">
+          <div className="relative aspect-[19/10] w-full overflow-hidden bg-white">
             <Image
               src={welcome.image}
               alt="Isadora & Associates team"
               fill
               sizes="100vw"
-              className="object-contain object-bottom"
+              className="object-cover object-bottom"
             />
           </div>
         </div>
