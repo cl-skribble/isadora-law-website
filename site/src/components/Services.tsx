@@ -25,7 +25,7 @@ export function Services() {
   const [openSlug, setOpenSlug] = useState<string | null>(services[0].slug);
 
   return (
-    <section id="services" className="relative overflow-hidden bg-white py-28 sm:py-36">
+    <section id="services" className="relative overflow-hidden bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-5xl px-6 sm:px-10">
         <Reveal>
           <SectionHeading eyebrow={servicesSection.eyebrow} emphasis={servicesSection.emphasis} center />

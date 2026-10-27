@@ -8,7 +8,7 @@ export function ManagingPartner() {
   const { managingPartner } = useContent();
 
   return (
-    <section className="relative overflow-hidden bg-ink py-28 sm:py-36">
+    <section className="relative overflow-hidden bg-ink py-20 sm:py-28">
       <div className="pointer-events-none absolute -left-32 top-0 h-96 w-96 rounded-full bg-gold/10 blur-3xl" />
 
       <div className="mx-auto grid max-w-7xl gap-16 px-6 sm:px-10 lg:grid-cols-[1fr_1.3fr] lg:items-start">

@@ -24,7 +24,7 @@ export function WhyUs() {
   const { whyUs, whyUsSection } = useContent();
 
   return (
-    <section id="why-us" className="relative overflow-hidden bg-ink py-28 sm:py-36">
+    <section id="why-us" className="relative overflow-hidden bg-ink py-20 sm:py-28">
       <div className="pointer-events-none absolute -right-40 bottom-0 h-96 w-96 rounded-full bg-gold/10 blur-3xl" />
       <div className="mx-auto max-w-5xl px-6 sm:px-10">
         <Reveal>

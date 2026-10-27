@@ -9,7 +9,7 @@ export function Team() {
   const { team, teamSection } = useContent();
 
   return (
-    <section id="team" className="relative overflow-hidden bg-white py-28 sm:py-36">
+    <section id="team" className="relative overflow-hidden bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-6 sm:px-10">
         <Reveal>
           <SectionHeading eyebrow={teamSection.eyebrow} emphasis={teamSection.emphasis} center />

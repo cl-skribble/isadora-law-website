@@ -8,7 +8,7 @@ export function About() {
   const { about } = useContent();
 
   return (
-    <section id="about" className="relative overflow-hidden bg-white py-28 sm:py-36">
+    <section id="about" className="relative overflow-hidden bg-white py-20 sm:py-28">
       {/* corner accents echoing the profile's diagonal motif */}
       <div className="absolute -top-1 left-0 h-40 w-40 -translate-x-1/2 -translate-y-1/2 rotate-45 bg-black sm:h-56 sm:w-56" />
       <div className="absolute left-0 top-0 h-40 w-px bg-gold/60 sm:h-56" />

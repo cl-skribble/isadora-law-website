@@ -9,7 +9,7 @@ export function Welcome() {
   const { welcome } = useContent();
 
   return (
-    <section className="relative overflow-hidden bg-paper py-28 sm:py-36">
+    <section className="relative overflow-hidden bg-paper py-20 sm:py-28">
       <div className="mx-auto max-w-4xl px-6 sm:px-10">
         <Reveal>
           <SectionHeading eyebrow={welcome.eyebrow} emphasis={welcome.heading} center />

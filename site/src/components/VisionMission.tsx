@@ -22,7 +22,7 @@ export function VisionMission() {
   const { visionMission } = useContent();
 
   return (
-    <section className="relative overflow-hidden bg-white py-28 sm:py-36">
+    <section className="relative overflow-hidden bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-4xl px-6 sm:px-10">
         <div className="space-y-16">
           <Reveal>

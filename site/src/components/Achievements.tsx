@@ -16,7 +16,7 @@ export function Achievements() {
   const { achievements, achievementsSection, managingPartner } = useContent();
 
   return (
-    <section className="relative overflow-hidden bg-white py-28 sm:py-36">
+    <section className="relative overflow-hidden bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-6 sm:px-10">
         <Reveal>
           <SectionHeading

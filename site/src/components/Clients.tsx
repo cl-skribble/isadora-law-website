@@ -73,7 +73,7 @@ export function Clients() {
   const rowB = clients.slice(mid);
 
   return (
-    <section id="clients" className="relative overflow-hidden bg-paper py-28 sm:py-36">
+    <section id="clients" className="relative overflow-hidden bg-paper py-20 sm:py-28">
       <div className="mx-auto max-w-3xl px-6 text-center sm:px-10">
         <Reveal>
           <SectionHeading eyebrow={clientsSection.eyebrow} emphasis={clientsSection.emphasis} center />

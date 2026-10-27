@@ -40,7 +40,7 @@ export function Contact() {
       </div>
       <div className="absolute inset-y-0 right-0 hidden w-[45%] clip-diagonal-tr border-l-2 border-gold/70 sm:block" />
 
-      <div className="relative mx-auto max-w-7xl px-6 py-28 sm:px-10 sm:py-36">
+      <div className="relative mx-auto max-w-7xl px-6 py-20 sm:px-10 sm:py-28">
         <div className="max-w-lg">
           <Reveal>
             <div className="mb-8 flex items-center gap-3">

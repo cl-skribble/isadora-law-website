@@ -51,7 +51,7 @@ export function CoreValues() {
   const bottomDark = [true, false, true];
 
   return (
-    <section className="relative overflow-hidden bg-paper py-28 sm:py-36">
+    <section className="relative overflow-hidden bg-paper py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-6 sm:px-10">
         <Reveal>
           <SectionHeading eyebrow={coreValuesSection.eyebrow} emphasis={coreValuesSection.emphasis} center />
