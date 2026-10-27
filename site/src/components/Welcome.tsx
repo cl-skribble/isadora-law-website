@@ -23,16 +23,17 @@ export function Welcome() {
         </div>
       </div>
 
-      <Reveal y={40} delay={0.15} className="mx-auto mt-16 max-w-6xl px-6 sm:px-10">
+      <Reveal y={40} delay={0.15} className="mx-auto mt-16 max-w-5xl px-6 sm:px-10">
         <div className="relative">
           <div className="absolute -bottom-4 -right-4 -z-10 h-full w-full bg-black sm:-bottom-6 sm:-right-6" />
-          <div className="relative aspect-[19/10] w-full overflow-hidden bg-white">
+          <div className="relative w-full border border-border bg-white p-5 sm:p-10 md:p-14">
             <Image
               src={welcome.image}
               alt="Isadora & Associates team"
-              fill
-              sizes="100vw"
-              className="object-cover object-bottom"
+              width={1260}
+              height={659}
+              sizes="(max-width: 1024px) 100vw, 1024px"
+              className="h-auto w-full"
             />
           </div>
         </div>
